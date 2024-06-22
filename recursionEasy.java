@@ -54,9 +54,10 @@ public class recursionEasy{
         
     }
     */
+    /*
     // 4. Print factorial of a number n
     public static void factorial(int n,int fact){
-        if(n==1){
+        if(n==1 || n==0){
             System.out.println(fact);
             return;
         }
@@ -71,6 +72,9 @@ public class recursionEasy{
         factorial(n,fact);
         
     }
+    */
+    
+    // 
 
 
 }
