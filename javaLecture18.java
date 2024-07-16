@@ -1,6 +1,8 @@
 import java.util.*;
 public class javaLecture18 {
+    /*
     // Q1. Tower of Hanoi - Transfer n disks from source to destination over 3 towers or more than that.
+    // just do a recursion leap of faith and you will soemhow understand Tower of Hanoi 🥲
     public static void towerOfHanoi(int n,String src , String hlpr, String dest){
         // base case
         if(n==1){
@@ -22,6 +24,29 @@ public class javaLecture18 {
         System.out.println("Enter the number of discs in your tower:");
         int n = sc.nextInt();
         towerOfHanoi(n,"Source","Helper","Destination");
+
+    }
+    */
+
+    // Q2. Print a string in reverse using recursion.
+    public static void stringReverse(int n,String s){
+        // base case
+        if(n==0){
+            return;
+        }
+
+        // kaam
+        System.out.print(s.charAt(n-1));
+        stringReverse(n-1,s);
+    }
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the String:");
+        String str=sc.nextLine();
+        int n= str.length();
+        stringReverse(n,str);
+
+       
 
     }
 }
