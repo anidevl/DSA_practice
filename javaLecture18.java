@@ -46,7 +46,6 @@ public class javaLecture18 {
         int n= str.length();
         stringReverse(n,str);
 
-    //    testing pesting
 
     }
 }
