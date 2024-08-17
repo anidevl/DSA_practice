@@ -27,7 +27,7 @@ public class javaLecture18 {
 
     }
     */
-
+    /*
     // Q2. Print a string in reverse using recursion.
     public static void stringReverse(int n,String s){
         // base case
@@ -47,5 +47,41 @@ public class javaLecture18 {
         stringReverse(n,str);
 
 
+    }
+    */
+    // Q3. Find the occurrence of the first and last occurrence of an element using recursion.
+    public static int firstOccur = -1 ;
+    public static int lastOccur = -1 ;
+    public static void occurCounter(String strArr,char e,int n){
+        //Base case
+        if(n==strArr.length()){
+            System.out.println(firstOccur);
+            System.out.println(lastOccur);
+            return;
+        }
+
+
+        // work
+        char currChar=strArr.charAt(n);
+        if(currChar==e){
+            if(firstOccur==-1){
+                firstOccur=n;
+            }else{
+                lastOccur=n;
+            }
+            
+        }
+        occurCounter(strArr,e,n+1);
+
+        
+    }
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the string array: ");
+        String strArr= sc.nextLine();
+        System.out.println("Enter the element whose first and last ocuurence you want to find: ");
+        char e = sc.next().charAt(0);
+        int n=0;
+        occurCounter(strArr,e,n);
     }
 }
