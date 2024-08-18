@@ -130,20 +130,35 @@ public class javaLecture18 {
 
     // Q5. Move all ‘x’ to the end of the string.
 
-    public static void addX(int count){
-     String newStr="x";
+    public static String addX(int count){
+     String newStr2= "x" ;
+     for(int i=1;i<count;i++){
+        newStr2+="x";
+     }
+     return newStr2;
+    }
+    public static String removeX(String str,int idx){
+       String newStr=""; 
+       newStr=str.substring(0,idx)+str.substring(idx+1);
+       return newStr;
     }
     public static void modifyStr(String str,int idx){
         int count=0;
        
         //base condition
-        
+        if(idx<str.length()){
+            System.out.println(addX(count));
+            return;
+        }
         
         //work
         if(str.charAt(idx)=='x'){
             count+=1;
-           
+            str=removeX(str,idx);
+            
         }
+        modifyStr(str,idx+1);
+
 
 
     }
