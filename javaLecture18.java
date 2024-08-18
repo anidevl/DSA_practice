@@ -49,6 +49,7 @@ public class javaLecture18 {
 
     }
     */
+    /*
     // Q3. Find the occurrence of the first and last occurrence of an element using recursion.
     public static int firstOccur = -1 ;
     public static int lastOccur = -1 ;
@@ -84,4 +85,71 @@ public class javaLecture18 {
         int n=0;
         occurCounter(strArr,e,n);
     }
+    */
+    /*
+    // Q4. Check if an array is sorted (strictly increasing).
+    // example: {1,2,3,4,5} ---> true
+    // example: {1,2,2,3,4} ---> false
+    // example: {1,6,3,4,5} ---> false
+    public static void checkSort(int[] arr,int idx){
+        boolean flag=true;
+        // base condition
+        if(idx==arr.length-1 && flag==true){
+           System.out.println("Array is sorted strictly in increasing order"); 
+           return;
+        }
+
+        // kaam
+        if(arr[idx]>=arr[idx+1]){
+           flag=false;
+           System.out.println("Array is not sorted strictly in increasing order");
+           return;
+        }else{
+            flag=true;
+            
+        }
+        checkSort(arr,idx+1);
+    }
+    public static void main(String[] args) {
+        Scanner sc= new Scanner(System.in);
+        System.out.println("Enter the size for your array: ");
+        int n= sc.nextInt();
+        int[] arr= new int[n];
+        for(int i=0;i<arr.length;i++){
+            System.out.println("Enter the elements of array at index "+ i + ": ");
+            arr[i]= sc.nextInt();
+        }
+        for(int i=0;i<arr.length;i++){
+            System.out.print(arr[i]+ " ");
+        }
+        System.out.println();
+        int index=0;
+        checkSort(arr,index);
+    }
+    */
+
+    // Q5. Move all ‘x’ to the end of the string.
+
+    public static void addX(int count){
+     String newStr="x";
+    }
+    public static void modifyStr(String str,int idx){
+        int count=0;
+       
+        //base condition
+        
+        
+        //work
+        if(str.charAt(idx)=='x'){
+            count+=1;
+           
+        }
+
+
+    }
+    public static void main(String[] args) {
+        String str="abcdxxxxfxghij";
+        modifyStr(str,0);
+    }
+
 }
