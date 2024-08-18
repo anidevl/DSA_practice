@@ -138,33 +138,31 @@ public class javaLecture18 {
      return newStr2;
     }
     public static String removeX(String str,int idx){
-       String newStr=""; 
-       newStr=str.substring(0,idx)+str.substring(idx+1);
-       return newStr;
+       return str.substring(0,idx)+str.substring(idx+1);
     }
-    public static void modifyStr(String str,int idx){
-        int count=0;
+    public static String modifyStr(String str,int idx,int count){
+        
        
         //base condition
-        if(idx<str.length()){
-            System.out.println(addX(count));
-            return;
+        if(idx==str.length()){
+            return str +addX(count);
         }
         
         //work
         if(str.charAt(idx)=='x'){
             count+=1;
             str=removeX(str,idx);
-            
+            return modifyStr(str,idx,count);
         }
-        modifyStr(str,idx+1);
+        return modifyStr(str,idx+1,count);
 
 
 
     }
     public static void main(String[] args) {
         String str="abcdxxxxfxghij";
-        modifyStr(str,0);
+        int count=0;
+        System.out.println(modifyStr(str,0,0));
     }
 
 }
