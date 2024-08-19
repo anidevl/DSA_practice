@@ -127,7 +127,7 @@ public class javaLecture18 {
         checkSort(arr,index);
     }
     */
-
+    /*
     // Q5. Move all ‘x’ to the end of the string.
 
     public static String addX(int count){
@@ -155,14 +155,87 @@ public class javaLecture18 {
             return modifyStr(str,idx,count);
         }
         return modifyStr(str,idx+1,count);
-
-
-
     }
     public static void main(String[] args) {
         String str="abcdxxxxfxghij";
         int count=0;
         System.out.println(modifyStr(str,0,0));
+    }
+    */
+    /*
+    // More optimum way to do Q5(above question) by applying shradhha didi's algorithm
+    public static void modifyX(String str,int idx,int count,String newStr){
+        // base condition
+        if(idx==str.length()){
+            for(int i=0;i<count;i++){
+                newStr+='x';
+            }
+            System.out.println(newStr);
+            return;
+        }
+
+
+        // kaam
+        char currChar= str.charAt(idx);
+        if(currChar=='x'){
+            count+=1;
+            modifyX(str,idx+1,count,newStr);
+        }else{
+            newStr += currChar;
+            modifyX(str,idx+1,count,newStr);
+        } 
+    }
+    public static void main(String[] args) {
+        String str="abcdxxxxfxghij";
+        String newStr="";
+        modifyX(str,0,0,newStr);
+    }
+    */
+    // Q6. Remove duplicates in a string.
+    public static boolean traverseString(String newStr,char currChar){
+        for(int i=0;i<newStr.length();i++){
+            if(newStr.charAt(i)==currChar){
+               return false;
+            }
+        }
+       return true;
+    }
+    public static void removeDup(String str,int idx,String newStr){
+        // base condition
+        if(idx==str.length()){
+           System.out.println(newStr);
+           return;
+        }
+
+        // kaam
+        char currChar=str.charAt(idx);
+        
+        if(traverseString(newStr,currChar)){
+           newStr+=currChar;
+        }
+        removeDup(str,idx+1,newStr);
+        
+    }
+    public static void main(String[] args) {
+        String str ="abbcdefffgghh";
+        String newStr="";
+        removeDup(str,0,newStr);
+    }
+    /*
+    although the above codes does the job but sadly it is not efficient
+    as removeDup function's recursion gives O(n) time complexity
+    while traverseString function's iteration causes another O(n) time complexity 
+    hence, the total time complexity is O(n^2) i.e time complexity of the above code is not at all good
+    */
+
+    // solving Q6 more efficiently using sharaddha didi's algo
+    public static boolean[] map = new boolean[26];
+    /*
+    we don't need to assign false to each index in map array because by default java assigns 0 at unassigned index
+    i.e false because 0 ---> false in Java
+    */  
+    public static void removeDuplicate(String str,int idx,String newStr){
+      if
     }
 
 }
