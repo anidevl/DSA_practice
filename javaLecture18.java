@@ -191,6 +191,7 @@ public class javaLecture18 {
         modifyX(str,0,0,newStr);
     }
     */
+    /*
     // Q6. Remove duplicates in a string.
     public static boolean traverseString(String newStr,char currChar){
         for(int i=0;i<newStr.length();i++){
@@ -221,21 +222,135 @@ public class javaLecture18 {
         String newStr="";
         removeDup(str,0,newStr);
     }
+    */
     /*
     although the above codes does the job but sadly it is not efficient
     as removeDup function's recursion gives O(n) time complexity
     while traverseString function's iteration causes another O(n) time complexity 
     hence, the total time complexity is O(n^2) i.e time complexity of the above code is not at all good
     */
-
+   /*
     // solving Q6 more efficiently using sharaddha didi's algo
     public static boolean[] map = new boolean[26];
-    /*
-    we don't need to assign false to each index in map array because by default java assigns 0 at unassigned index
-    i.e false because 0 ---> false in Java
-    */  
-    public static void removeDuplicate(String str,int idx,String newStr){
-      if
-    }
 
+    // we don't need to assign false to each index in map array because by default java assigns 0 at unassigned index
+    // i.e false because 0 ---> false in Java
+     
+    public static void removeDuplicate(String str,int idx,String newStr){
+        // base condition
+        if(idx==str.length()){
+            System.out.println(newStr);
+            return;
+        }
+        
+        // kaam
+        char currChar= str.charAt(idx);
+        // 'a'-'a' = 0
+        // 'a'-'b' = 1
+        //  .
+        //  .
+        //  .
+        //  'a'-'z'= 25
+      if(map[currChar-'a']==true){  
+         removeDuplicate(str,idx+1,newStr);
+      }
+      else{
+        newStr+=currChar;
+        map[currChar-'a'] = true; 
+        // assign true to that index so that next time if that character 
+        // comes again we know that it is already present in that string
+        removeDuplicate(str,idx+1,newStr);
+      }
+    }
+    public static void main(String[] args) {
+        String str="abcadbcefghabi";
+        String newStr="";
+        removeDuplicate(str,0,newStr);
+    }
+    // time complexity of this algorithm will be O(n) 😀
+   */ 
+    /*
+    // Q7. Print all the subsequences of a string.
+    public static void printSub(String str,int idx,String newStr){
+        // base condition
+        if(idx==str.length()){
+            System.out.println(newStr);
+            return;
+        }
+
+        // kaam
+        char currChar =str.charAt(idx);
+        printSub(str,idx+1,newStr+currChar);  // to choose to add
+        printSub(str,idx+1,newStr); // to not add
+    }
+    public static void main(String[] args) {
+        String str="abc";
+        printSub(str,0,"");
+    }
+    */
+    /*
+    // Q8. Print all unique subsequences of a string.
+
+    public static void uniqueSub(String str,int idx,String newStr, HashSet<String> set){
+     //  base condition
+        if(idx==str.length()){
+            if(set.contains(newStr)){
+                return;
+            }else{
+                System.out.println(newStr);
+                set.add(newStr);
+                return;
+            }
+        }
+
+    //  kaam
+    char currChar =str.charAt(idx);
+        uniqueSub(str,idx+1,newStr+currChar,set);  // to choose to add
+        uniqueSub(str,idx+1,newStr,set); // to not add
+    }
+    public static void main(String[] args) {
+        String str="aaa";
+        HashSet<String> set= new HashSet<>();
+        uniqueSub(str,0,"",set);
+    }
+    */
+
+    /*
+    
+    Q9. Print keypad combination
+    ( 0 -> .;
+      1 -> abc
+      2 -> def
+      3 -> ghi
+      4 -> jkl
+      5 -> mno
+      6 -> pqrs
+      7 -> tu
+      8 -> vwx
+      9 -> yz
+    )
+
+    */
+
+    public static String[] map={".;","abc","def","ghi","jkl","mno","pqrs","tu","vwx","yz"};
+    public static void keypadComb(String str,int idx,String combination){
+        // base condition
+        if(idx==str.length()){
+            System.out.println(combination);
+            return;
+        }
+
+        // kaam
+        char currChar=str.charAt(idx);
+        String mapping=map[currChar-'0'];
+        for(int i=0;i<mapping.length();i++){
+            keypadComb(str,idx+1,combination+mapping.charAt(i));
+        }
+    }
+    public static void main(String[] args) {
+        String keypad="26";
+        keypadComb(keypad,0,"");
+    }
+    // time complexity of the above question is O(4^n) because maximum possible keypad values are 4 i.e "pqrs"
+    
 }
