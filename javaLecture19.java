@@ -28,6 +28,7 @@ public class javaLecture19{
     }
     */
     /*
+    
     // Q2. CountPathMaze
     public static int pathInMaze(int sr,int sc, int fr,int fc){
         // sr --> starting row 
