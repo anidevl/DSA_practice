@@ -1,3 +1,4 @@
+import java.util.*;
 public class javaLecture19{
     /*
     // Q1. Print all the permutations of a string.
@@ -83,6 +84,7 @@ public class javaLecture19{
         placeTiles(n,m);
     }
     */
+    /*
     // Q4. Find the number of ways in which you can invite n people to your party,single or in pairs
     public static int inviteParty(int n){
         // base codnition
@@ -99,7 +101,39 @@ public class javaLecture19{
         int n = 4;
         System.out.println(inviteParty(n));
     }
+    */
 
+    // Q5.Print all the subsets of a set of first n natural numbers
+
+    public static void printSubsets(ArrayList<Integer> subset) {
+        for(int i=0; i<subset.size(); i++) {
+            System.out.print(subset.get(i)+" ");
+        }
+        System.out.println();
+    }
+    public static void printSub(ArrayList<Integer> subset , int n){
+        // base condition
+        if(n==0){
+          printSubsets(subset);
+          return;
+        }
+
+        // kaam
+
+        // add hoga
+        subset.add(n);
+        printSub(subset,n-1);
+
+        // nahi add hoga
+        subset.remove(subset.size()-1);
+        printSub(subset,n-1);
+    }
+
+    public static void main(String[] args) {
+        int n=4;
+        ArrayList<Integer> subset = new ArrayList<>();
+        printSub(subset,n);
+    }
 
 
 
