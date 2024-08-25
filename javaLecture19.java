@@ -56,7 +56,7 @@ public class javaLecture19{
         System.out.println(pathInMaze(0,0,finalRow,finalColumn));
     }
     */
-
+    /*
     // Q3. Place Tiles of size 1 x m in a floor of size n x m
     // let n = 4, m = 2
     public static int placeTiles(int n,int m){
@@ -82,6 +82,24 @@ public class javaLecture19{
         int n=4,m=2;
         placeTiles(n,m);
     }
+    */
+    // Q4. Find the number of ways in which you can invite n people to your party,single or in pairs
+    public static int inviteParty(int n){
+        // base codnition
+        if(n<=1){
+            return 1;
+        }
+
+        // kaam
+        int ways1 =inviteParty(n-1);
+        int ways2=(n-1)*inviteParty(n-2);
+        return ways1 + ways2 ; 
+    }
+    public static void main(String[] args) {
+        int n = 4;
+        System.out.println(inviteParty(n));
+    }
+
 
 
 
