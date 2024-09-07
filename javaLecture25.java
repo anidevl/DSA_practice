@@ -53,7 +53,21 @@ public class javaLecture25 {
         System.out.println("Maximum value: " + max);
         System.out.println("Minimum value: " + min);
        */
-      
-        
+     // 3. Take an array of numbers as input and check if it is an array sorted in ascending order.
+     // Eg : { 1, 2, 4, 7 } is sorted in ascending order.
+        // {3, 4, 6, 2} is not sorted in ascending order.  
+        ArrayList<Integer> arr = new ArrayList<>(Arrays.asList(20,40,22,32,80,120,100,-2));
+        boolean flag=true;
+        for(int i=0 ;i<arr.size()-1;i++){
+            if(arr.get(i)>arr.get(i+1)){
+                flag = false;
+                break;
+            }
+        }
+        if(flag){
+            System.out.println("It is a Sorted Array");
+        }else{
+            System.out.println("Not a Sorted Array");
+        }
     }
 }
