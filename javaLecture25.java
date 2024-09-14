@@ -3,7 +3,6 @@ public class javaLecture25 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         // Solve all questions of arrays using only arraylist
-        /*
         //1. Take an array of names as input from the user and print them on the screen.
         ArrayList<String> names = new ArrayList<>();
         
@@ -25,7 +24,7 @@ public class javaLecture25 {
 
         }
         System.out.println(names);
-        */
+    
 
         /*
         // 2. Find the maximum & minimum number in an ArrayList of integers.
@@ -53,6 +52,7 @@ public class javaLecture25 {
         System.out.println("Maximum value: " + max);
         System.out.println("Minimum value: " + min);
        */
+      /*
      // 3. Take an array of numbers as input and check if it is an array sorted in ascending order.
      // Eg : { 1, 2, 4, 7 } is sorted in ascending order.
         // {3, 4, 6, 2} is not sorted in ascending order.  
@@ -69,5 +69,6 @@ public class javaLecture25 {
         }else{
             System.out.println("Not a Sorted Array");
         }
+        */
     }
 }
