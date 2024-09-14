@@ -28,13 +28,16 @@ public class LL{
   public void addFirst(String data){
     Node newNode = new Node(data);
     newNode.next = head;
-    head= newNode; 
+    head= newNode;
+    size++;
   }
   //addLast
   public void addLast(String data){
     Node newNode = new Node(data);
+    size++;
     if(head==null){
       head=newNode;
+      return;
     }
     Node currNode = head;
     while(currNode.next!=null){
@@ -49,7 +52,8 @@ public class LL{
       System.out.println("LinkedList is Empty ");
       return;
     }
-    head= head.next;
+    head = head.next;
+    size--;
   }
   // deleteLast
   public void deleteLast(){
@@ -59,6 +63,7 @@ public class LL{
     }
     if(head.next==null){
       head=null;
+      size--;
       return;
     }
     Node secondLast = head;
@@ -69,6 +74,7 @@ public class LL{
       secondLast = secondLast.next;
     }
     secondLast.next = null;
+    size--;
     
   }
   // traverese
@@ -86,15 +92,24 @@ public class LL{
     System.out.println("null");
     
   }
+  // size
+  public void size(){
+    System.out.println(size);
+  }
   public static void main(String[] args) {
     LL list = new LL();
     list.addFirst("hello");
     list.addLast("there");
+    
     list.traverese();
+    list.size();
     list.deleteFirst();
     list.traverese();
+    list.size();
     list.deleteLast();
     list.traverese();
+    list.size();
+
   }
   
     
