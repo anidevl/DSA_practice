@@ -96,6 +96,23 @@ public class LL{
   public void size(){
     System.out.println(size);
   }
+  //reverse
+  public void reverse(){
+    if(head == null || head.next == null){
+      return;
+    }
+    Node prevNode= head;
+    Node currNode = head.next;
+    while(currNode!=null){
+       Node nextNode = currNode.next;
+       currNode.next = prevNode;
+       prevNode = currNode;
+       currNode = nextNode;
+        
+
+    }
+
+  }
   public static void main(String[] args) {
     LL list = new LL();
     list.addFirst("hello");
