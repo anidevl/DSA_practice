@@ -97,33 +97,57 @@ public class LL{
     System.out.println(size);
   }
   //reverse
-  public void reverse(){
-    if(head == null || head.next == null){
+  public void reverseIterative(){
+    // if list is empty or only one element is present then we will deal it with using below case
+    if(head==null || head.next==null){
       return;
     }
-    Node prevNode= head;
-    Node currNode = head.next;
-    while(currNode!=null){
-       Node nextNode = currNode.next;
-       currNode.next = prevNode;
-       prevNode = currNode;
-       currNode = nextNode;
+    // if list is not empty
+      Node prevNode = null;
+      Node currNode = head;
+      Node nextNode = head.next;
+      while(currNode!=null){
+         nextNode = currNode.next;
+         currNode.next = prevNode;
+         prevNode = currNode;
+         currNode = nextNode;
+      }
+      //making my original LinkedList 's last element as head after reversing the whole Linked list 
+      head = prevNode;  
         
 
     }
+    public Node reverseRecursive(Node head){
+      if(head==null || head.next==null){
+        return head;
+      }
+      
+      Node newHead = reverseRecursive(head.next);
+      Node front = head.next;
+      front.next = head;
+      head.next = null;
+      return newHead;
 
-  }
+      
+    }
+    
+  
   public static void main(String[] args) {
     LL list = new LL();
-    list.addFirst("hello");
-    list.addLast("there");
+    list.addFirst("1");
+    list.addLast("3");
+    list.addLast("4");
+    list.addLast("5");
     
+    // list.traverese();
+    // list.size();
+    // list.deleteFirst();
+    // list.traverese();
+    // list.size();
+    // list.deleteLast();
     list.traverese();
     list.size();
-    list.deleteFirst();
-    list.traverese();
-    list.size();
-    list.deleteLast();
+    list.head=list.reverseRecursive(list.head);
     list.traverese();
     list.size();
 
